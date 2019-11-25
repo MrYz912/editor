@@ -31,18 +31,26 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查找ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.替换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新建ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查找ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.替换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全选ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查找ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.替换ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -72,8 +80,26 @@
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.打开ToolStripMenuItem.Text = "打开";
+            // 
+            // 新建ToolStripMenuItem
+            // 
+            this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
+            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.新建ToolStripMenuItem.Text = "新建";
+            // 
+            // 保存ToolStripMenuItem
+            // 
+            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.保存ToolStripMenuItem.Text = "保存";
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.退出ToolStripMenuItem.Text = "退出";
             // 
             // 编辑ToolStripMenuItem
             // 
@@ -89,44 +115,26 @@
             // 查找ToolStripMenuItem
             // 
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.查找ToolStripMenuItem.Text = "复制";
             this.查找ToolStripMenuItem.Click += new System.EventHandler(this.查找ToolStripMenuItem_Click);
             // 
             // 替换ToolStripMenuItem
             // 
             this.替换ToolStripMenuItem.Name = "替换ToolStripMenuItem";
-            this.替换ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.替换ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.替换ToolStripMenuItem.Text = "粘贴";
-            // 
-            // 新建ToolStripMenuItem
-            // 
-            this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.新建ToolStripMenuItem.Text = "新建";
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.保存ToolStripMenuItem.Text = "保存";
-            // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.退出ToolStripMenuItem.Text = "退出";
             // 
             // 全选ToolStripMenuItem
             // 
             this.全选ToolStripMenuItem.Name = "全选ToolStripMenuItem";
-            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.全选ToolStripMenuItem.Text = "剪切";
             // 
             // 全选ToolStripMenuItem1
             // 
             this.全选ToolStripMenuItem1.Name = "全选ToolStripMenuItem1";
-            this.全选ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.全选ToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
             this.全选ToolStripMenuItem1.Text = "全选";
             // 
             // 查看ToolStripMenuItem
@@ -150,17 +158,68 @@
             this.替换ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.替换ToolStripMenuItem1.Text = "替换";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(103, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 29);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "颜色";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "字体";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(1628, 856);
+            this.splitContainer1.SplitterDistance = 37;
+            this.splitContainer1.TabIndex = 3;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(1628, 815);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1628, 884);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,6 +241,10 @@
         private System.Windows.Forms.ToolStripMenuItem 查看ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查找ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 替换ToolStripMenuItem1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

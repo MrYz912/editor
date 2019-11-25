@@ -36,5 +36,15 @@ namespace editor
         {
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
