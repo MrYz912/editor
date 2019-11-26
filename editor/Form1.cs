@@ -19,6 +19,8 @@ namespace editor
 
             richTextBox1.AllowDrop = true;
             richTextBox1.DragDrop += RichTextBox_DragDrop;
+
+            tabControl1.TabPages[0].Text = "new file";
         }
 
         private void OpenFile(string path, RichTextBox richTextBox)
@@ -54,29 +56,30 @@ namespace editor
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files)
             {
-                Control.ControlCollection controls = tabControl1.TabPages[0].Controls;
-                RichTextBox richTextBox = controls[0] as RichTextBox;
-                if (tabControl1.TabPages.Count == 1 && richTextBox.Text.Trim() == "")
-                {
-                    OpenFile(file, richTextBox);
-                }
-                else
-                {
-                    // new tabPage
-                    TabPage tabPageTemp = new TabPage();
-                    RichTextBox rich = new RichTextBox();
-                    rich.Dock = DockStyle.Fill;
-                    rich.AllowDrop = true;
-                    rich.DragDrop += RichTextBox_DragDrop;
-                    rich.ContextMenuStrip = contextMenuStrip1;
-                    rich.Font = new Font("宋体", 12);
-                    tabPageTemp.Controls.Add(rich);
-                    tabControl1.TabPages.Add(tabPageTemp);
-                    OpenFile(file, rich);
-                    RichTextBox richTextBox2 = tabControl1.SelectedTab.Controls[0] as RichTextBox;
-                }
+                FileToRich(file);
             }
-            TabPage tabPage = _ = tabControl1.TabPages[0];
+        }
+
+        private void FileToRich(string file)
+        {
+            Control.ControlCollection controls = tabControl1.TabPages[0].Controls;
+            RichTextBox richTextBox = controls[0] as RichTextBox;
+            if (tabControl1.TabPages.Count == 1 && richTextBox.Text.Trim() == "")
+            {
+                OpenFile(file, richTextBox);
+            }
+            else
+            {
+                // new tabPage
+                TabPage tabPageTemp = new TabPage();
+                RichTextBox rich = new RichTextBox();
+                rich.Dock = DockStyle.Fill;
+                rich.AllowDrop = true;
+                rich.DragDrop += RichTextBox_DragDrop;
+                tabPageTemp.Controls.Add(rich);
+                tabControl1.TabPages.Add(tabPageTemp);
+                OpenFile(file, rich);
+            }
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -180,6 +183,103 @@ namespace editor
         private void 查找和替换ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             findAndSearch();
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void 新建ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabPage tabPageTemp = new TabPage("new file");
+            RichTextBox rich = new RichTextBox();
+            rich.Dock = DockStyle.Fill;
+            rich.AllowDrop = true;
+            rich.DragDrop += RichTextBox_DragDrop;
+            tabPageTemp.Controls.Add(rich);
+            tabControl1.TabPages.Add(tabPageTemp);
+        }
+
+        private void 打开ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = GetOpenFilePath();
+            if (path == "") return;
+            FileToRich(path);
+        }
+
+        private string GetOpenFilePath()
+        {
+            string strFileName = "";
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "文本文件(*.txt)|*.txt|rtf文件(*.rtf)|*.rtf|所有文件|*.*";
+            ofd.ValidateNames = true; // 验证用户输入是否是一个有效的Windows文件名
+            ofd.CheckFileExists = true; //验证路径的有效性
+            ofd.CheckPathExists = true;//验证路径的有效性
+            if (ofd.ShowDialog() == DialogResult.OK) //用户点击确认按钮，发送确认消息
+            {
+                strFileName = ofd.FileName;//获取在文件对话框中选定的路径或者字符串
+
+            }
+            return strFileName;
+        }
+
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = "";
+            if (tabControl1.SelectedTab.Text == "new file")
+            {
+                path = GetSaveFilePath();
+            }
+            else
+            {
+                path = tabControl1.SelectedTab.Text;
+            }
+            if (path == "") return;
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            SaveFile(path, richTextBox);
+        }
+
+        private void SaveFile(string path, RichTextBox richTextBox)
+        {
+
+            if (Path.GetExtension(path) == ".txt")  //判断文件类型，只接受txt文件
+            {
+                StreamWriter sw = new StreamWriter(path, false, System.Text.Encoding.UTF8);
+
+                sw.Write(richTextBox.Text);
+
+                sw.Flush();
+                sw.Close();
+
+            }
+            else if (Path.GetExtension(path) == ".rtf")
+            {
+                richTextBox.SaveFile(path);
+            }
+            TabPage tabPage = richTextBox.Parent as TabPage;
+            tabPage.Text = path;
+        }
+
+        private string GetSaveFilePath()
+        {
+            string strFileName = "";
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "文本文件(*.txt)|*.txt|rtf文件(*.rtf)|*.rtf";
+            sfd.ValidateNames = true;
+            //sfd.CheckFileExists = true;
+            sfd.CheckPathExists = true;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                strFileName = sfd.FileName;
+            }
+            return strFileName;
+        }
+
+        private void tabControl_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TabPage selectedTab = tabControl1.SelectedTab;
+            tabControl1.TabPages.Remove(selectedTab);
         }
     }
 }
