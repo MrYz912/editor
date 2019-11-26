@@ -109,26 +109,32 @@ namespace editor
 
         private void button1_Click(object sender, EventArgs e)
         {
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+
             DialogResult dr = fontDialog1.ShowDialog();
             if(dr == DialogResult.OK)
             {
-                richTextBox1.SelectionFont = fontDialog1.Font;
+                richTextBox.SelectionFont = fontDialog1.Font;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+
             DialogResult di = colorDialog1.ShowDialog();
             if(di == DialogResult.OK)
             {
-                richTextBox1.SelectionColor = colorDialog1.Color;
+                richTextBox.SelectionColor = colorDialog1.Color;
             }
 
         }
         
         private void findAndSearch()
         {
-            Form2 from2 = new Form2(richTextBox1);
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+
+            Form2 from2 = new Form2(richTextBox);
             from2.Show();
         }
 
@@ -144,22 +150,26 @@ namespace editor
 
         private void 全选ToolStripMenuItem1_Click(object sender, EventArgs e)//全选按钮
         {
-            richTextBox1.SelectAll();
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.SelectAll();
         }
 
         private void 替换ToolStripMenuItem_Click(object sender, EventArgs e)//粘贴按钮
         {
-            richTextBox1.Paste();
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.Paste();
         }
 
         private void 全选ToolStripMenuItem_Click(object sender, EventArgs e)//剪切按钮
         {
-            richTextBox1.Cut();
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.Cut();
         }
 
         private void 查找ToolStripMenuItem_Click(object sender, EventArgs e)//复制按钮
         {
-            richTextBox1.Copy();
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.Copy();
         }
     }
 }

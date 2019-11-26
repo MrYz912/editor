@@ -15,10 +15,10 @@ namespace editor
         int start = 0, count = 0;
         RichTextBox richTextBox3;
 
-        public Form2(RichTextBox richTextBox1)
+        public Form2(RichTextBox richTextBox)
         {
             InitializeComponent();
-            richTextBox3 = richTextBox1;
+            richTextBox3 = richTextBox;
         }
 
         private void Form2_Load(object sender, EventArgs e)
