@@ -45,12 +45,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -80,25 +86,25 @@
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.打开ToolStripMenuItem.Text = "打开";
             // 
             // 新建ToolStripMenuItem
             // 
             this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.新建ToolStripMenuItem.Text = "新建";
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.保存ToolStripMenuItem.Text = "保存";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             // 
             // 编辑ToolStripMenuItem
@@ -115,27 +121,30 @@
             // 查找ToolStripMenuItem
             // 
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.查找ToolStripMenuItem.Text = "复制";
             this.查找ToolStripMenuItem.Click += new System.EventHandler(this.查找ToolStripMenuItem_Click);
             // 
             // 替换ToolStripMenuItem
             // 
             this.替换ToolStripMenuItem.Name = "替换ToolStripMenuItem";
-            this.替换ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.替换ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.替换ToolStripMenuItem.Text = "粘贴";
+            this.替换ToolStripMenuItem.Click += new System.EventHandler(this.替换ToolStripMenuItem_Click);
             // 
             // 全选ToolStripMenuItem
             // 
             this.全选ToolStripMenuItem.Name = "全选ToolStripMenuItem";
-            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.全选ToolStripMenuItem.Text = "剪切";
+            this.全选ToolStripMenuItem.Click += new System.EventHandler(this.全选ToolStripMenuItem_Click);
             // 
             // 全选ToolStripMenuItem1
             // 
             this.全选ToolStripMenuItem1.Name = "全选ToolStripMenuItem1";
-            this.全选ToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
+            this.全选ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.全选ToolStripMenuItem1.Text = "全选";
+            this.全选ToolStripMenuItem1.Click += new System.EventHandler(this.全选ToolStripMenuItem1_Click);
             // 
             // 查看ToolStripMenuItem
             // 
@@ -145,18 +154,21 @@
             this.查看ToolStripMenuItem.Name = "查看ToolStripMenuItem";
             this.查看ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.查看ToolStripMenuItem.Text = "查看";
+            this.查看ToolStripMenuItem.Click += new System.EventHandler(this.查看ToolStripMenuItem_Click);
             // 
             // 查找ToolStripMenuItem1
             // 
             this.查找ToolStripMenuItem1.Name = "查找ToolStripMenuItem1";
-            this.查找ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.查找ToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
             this.查找ToolStripMenuItem1.Text = "查找";
+            this.查找ToolStripMenuItem1.Click += new System.EventHandler(this.查找ToolStripMenuItem1_Click);
             // 
             // 替换ToolStripMenuItem1
             // 
             this.替换ToolStripMenuItem1.Name = "替换ToolStripMenuItem1";
-            this.替换ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.替换ToolStripMenuItem1.Size = new System.Drawing.Size(122, 26);
             this.替换ToolStripMenuItem1.Text = "替换";
+            this.替换ToolStripMenuItem1.Click += new System.EventHandler(this.替换ToolStripMenuItem1_Click);
             // 
             // button2
             // 
@@ -166,6 +178,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "颜色";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -175,6 +188,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "字体";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // splitContainer1
             // 
@@ -190,17 +204,38 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1628, 856);
             this.splitContainer1.SplitterDistance = 37;
             this.splitContainer1.TabIndex = 3;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1628, 815);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1620, 786);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1628, 815);
+            this.richTextBox1.Size = new System.Drawing.Size(1614, 780);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -220,6 +255,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +281,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

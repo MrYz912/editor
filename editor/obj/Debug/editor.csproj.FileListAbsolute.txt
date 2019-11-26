@@ -7,3 +7,4 @@ C:\编程\C#\editor\editor\editor\obj\Debug\editor.Properties.Resources.resource
 C:\编程\C#\editor\editor\editor\obj\Debug\editor.csproj.GenerateResource.cache
 C:\编程\C#\editor\editor\editor\obj\Debug\editor.exe
 C:\编程\C#\editor\editor\editor\obj\Debug\editor.pdb
+C:\编程\C#\editor\editor\editor\obj\Debug\editor.Form2.resources
