@@ -68,6 +68,8 @@ namespace editor
                     rich.Dock = DockStyle.Fill;
                     rich.AllowDrop = true;
                     rich.DragDrop += RichTextBox_DragDrop;
+                    rich.ContextMenuStrip = contextMenuStrip1;
+                    rich.Font = new Font("宋体", 12);
                     tabPageTemp.Controls.Add(rich);
                     tabControl1.TabPages.Add(tabPageTemp);
                     OpenFile(file, rich);
@@ -97,20 +99,9 @@ namespace editor
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//改变字体
         {
             RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
-
             DialogResult dr = fontDialog1.ShowDialog();
             if(dr == DialogResult.OK)
             {
@@ -118,23 +109,19 @@ namespace editor
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)//改变颜色
         {
             RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
-
             DialogResult di = colorDialog1.ShowDialog();
             if(di == DialogResult.OK)
             {
                 richTextBox.SelectionColor = colorDialog1.Color;
             }
-
         }
         
         private void findAndSearch()
         {
-            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
-
-            Form2 from2 = new Form2(richTextBox);
+            Form2 from2 = new Form2(tabControl1);
             from2.Show();
         }
 
@@ -170,6 +157,29 @@ namespace editor
         {
             RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
             richTextBox.Copy();
+        }
+
+        private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.Copy();
+        }
+
+        private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.Paste();
+        }
+
+        private void 剪切ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = tabControl1.SelectedTab.Controls[0] as RichTextBox;
+            richTextBox.Cut();
+        }
+
+        private void 查找和替换ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            findAndSearch();
         }
     }
 }

@@ -14,11 +14,13 @@ namespace editor
     {
         int start = 0, count = 0;
         RichTextBox richTextBox3;
+        TabControl tabControl2;
 
-        public Form2(RichTextBox richTextBox)
+        public Form2(TabControl tabControl)
         {
             InitializeComponent();
-            richTextBox3 = richTextBox;
+            tabControl2 = tabControl;
+            richTextBox3 = tabControl2.SelectedTab.Controls[0] as RichTextBox;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -42,7 +44,8 @@ namespace editor
         private void button1_Click(object sender, EventArgs e)//查找按钮
         {
             string str = text_find.Text;
-            if(start >= richTextBox3.TextLength)
+            richTextBox3 = tabControl2.SelectedTab.Controls[0] as RichTextBox;
+            if (start >= richTextBox3.TextLength)
             {
                 MessageBox.Show("已寻找到尾部");
                 start = 0;
@@ -63,6 +66,7 @@ namespace editor
                 else
                 {
                     start += str.Length;
+                    count += 1;
                     richTextBox3.Focus();
                 }
             }
@@ -70,6 +74,7 @@ namespace editor
 
         private void button2_Click(object sender, EventArgs e)//替换按钮
         {
+            richTextBox3 = tabControl2.SelectedTab.Controls[0] as RichTextBox;
             richTextBox3.Text = richTextBox3.Text.Replace(text_find.Text, text_replace.Text);
         }
 
