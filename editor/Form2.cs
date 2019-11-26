@@ -63,7 +63,7 @@ namespace editor
                         start = 0;
                     }
                 }
-                else
+                else//找到匹配的
                 {
                     start += str.Length;
                     count += 1;
